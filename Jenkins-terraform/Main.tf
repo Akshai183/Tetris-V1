@@ -66,6 +66,7 @@ resource "aws_instance" "web" {
   user_data              = templatefile("./install_jenkins.sh", {})
   iam_instance_profile   = aws_iam_instance_profile.example_profile.name
   subnet_id              = "subnet-0cec37ed3a43bd980"
+  associate_public_ip_address = true
 
   tags = {
     Name = "Jenkins-argo"
